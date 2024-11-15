@@ -1,5 +1,6 @@
 import { expect } from "chai";
+import { React } from "../src/React";
 
-it("should work", () => {
-  expect(1).to.be.false;
+it("React exists", () => {
+  expect(React).not.to.be.undefined;
 });

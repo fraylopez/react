@@ -16,13 +16,13 @@
     "noImplicitReturns": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "noUnusedParameters": true,
-    "checkJs": true,
+    "checkJs": false,
     "sourceMap": false,
     "declaration": false,
     "stripInternal": true,
-    "outDir": "app/dist",
+    "outDir": "dist",
     "useUnknownInCatchVariables": false,
     // "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
@@ -36,16 +36,17 @@
   "watchOptions": {
     "excludeDirectories": [
       "node_modules",
-      "app/dist/"
+      "dist/**/*",
     ]
   },
   "include": [
-    "src/**/*",
-    "app/**/*",
+    "./src/**/*",
+    "./app/**/*",
   ],
   "exclude": [
     "node_modules",
-    "app/dist/"
+    "./dist",
+    ".js",
   ],
   "ts-node": {
     "esm": true, // «———— enabling ESM for ts-node
