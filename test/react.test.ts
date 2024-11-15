@@ -16,7 +16,6 @@ it("should create elements with children", () => {
 });
 
 it("should create elements with props", () => {
-
-  const element: any = React.createElement("CustomElement", { id: "app" });
+  const element: any = React.createElement("App", { id: "app" });
   expect(element.props).deep.equal({ id: "app" });
 });

@@ -1,9 +1,9 @@
 export const React = {
-    createElement: (...params) => {
+    createElement: (tag, props, ...children) => {
         return {
-            tag: params[0],
-            props: params[1],
-            children: params.slice(2)
+            tag,
+            props,
+            children,
         };
     }
 };
