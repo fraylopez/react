@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { React } from "../src/React";
+import { React, render } from "../src/React";
 import { SomeComponent } from "./fixtures/SomeComponent";
 
 it("React exists", () => {
@@ -29,4 +29,11 @@ it("should allow elements as children", () => {
 it("should create components", () => {
   const element = React.createElement(SomeComponent);
   expect(element.children).deep.equal(["Hello Component!"]);
+});
+
+it("should render components", () => {
+  const element = React.createElement(SomeComponent);
+  const container = document.createElement("div");
+  const rendered = render(element, container);
+  expect(rendered).not.to.be.undefined;
 });

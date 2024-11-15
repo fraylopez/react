@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "lib": [
-      "es2022"
+      "es2022",
+      "dom"
     ],
     "module": "es2022",
     "target": "es2022",
@@ -17,7 +18,7 @@
     "noPropertyAccessFromIndexSignature": true,
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": false,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
     "checkJs": false,
     "sourceMap": false,
     "declaration": false,

@@ -10,3 +10,5 @@ export const React = {
         };
     }
 };
+export const render = (element, container) => {
+};

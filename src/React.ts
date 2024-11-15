@@ -1,3 +1,4 @@
+
 export const React = {
   createElement: (
     tagOrComponent: string | (() => any),
@@ -13,4 +14,8 @@ export const React = {
       children,
     };
   }
+};
+
+export const render = (element: any, container: HTMLElement) => {
+
 };
