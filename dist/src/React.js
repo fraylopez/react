@@ -1,7 +1,10 @@
 export const React = {
-    createElement: (tag, props, ...children) => {
+    createElement: (tagOrComponent, props, ...children) => {
+        if (typeof tagOrComponent === "function") {
+            return tagOrComponent();
+        }
         return {
-            tag,
+            tag: tagOrComponent,
             props,
             children,
         };

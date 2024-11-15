@@ -1,5 +1,6 @@
 import { expect } from "chai";
 import { React } from "../src/React";
+import { SomeComponent } from "./fixtures/SomeComponent";
 
 it("React exists", () => {
   expect(React).not.to.be.undefined;
@@ -23,4 +24,9 @@ it("should create elements with props", () => {
 it("should allow elements as children", () => {
   const element: any = React.createElement("div", null, React.createElement("span"));
   expect(element.children[0].tag).equal("span");
+});
+
+it("should create components", () => {
+  const element = React.createElement(SomeComponent);
+  expect(element.children).deep.equal(["Hello Component!"]);
 });

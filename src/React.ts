@@ -1,7 +1,14 @@
 export const React = {
-  createElement: (tag: string, props?: { [key: string]: any; } | null, ...children: any[]) => {
+  createElement: (
+    tagOrComponent: string | (() => any),
+    props?: { [key: string]: any; } | null,
+    ...children: any[]) => {
+
+    if (typeof tagOrComponent === "function") {
+      return tagOrComponent();
+    }
     return {
-      tag,
+      tag: tagOrComponent,
       props,
       children,
     };
