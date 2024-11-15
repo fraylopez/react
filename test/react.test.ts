@@ -19,3 +19,8 @@ it("should create elements with props", () => {
   const element: any = React.createElement("App", { id: "app" });
   expect(element.props).deep.equal({ id: "app" });
 });
+
+it("should allow elements as children", () => {
+  const element: any = React.createElement("div", null, React.createElement("span"));
+  expect(element.children[0].tag).equal("span");
+});
