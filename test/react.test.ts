@@ -11,6 +11,12 @@ it("should create elements with tag", () => {
 });
 
 it("should create elements with children", () => {
-  const element: any = React.createElement("div", "Hello");
+  const element: any = React.createElement("div", null, "Hello");
   expect(element.children).deep.equal(["Hello"]);
+});
+
+it("should create elements with props", () => {
+
+  const element: any = React.createElement("CustomElement", { id: "app" });
+  expect(element.props).deep.equal({ id: "app" });
 });
