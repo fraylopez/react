@@ -26,6 +26,7 @@
     "outDir": "dist",
     "useUnknownInCatchVariables": false,
     // "allowImportingTsExtensions": true,
+    "noEmit": false,
     "verbatimModuleSyntax": true,
     "ignoreDeprecations": "5.0",
     "jsx": "react",
