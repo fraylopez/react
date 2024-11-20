@@ -1,6 +1,7 @@
 import { expect } from "chai";
 import { React, render } from "../src/React";
 import { SomeComponent } from "./fixtures/SomeComponent";
+import { JSDOM } from "jsdom";
 
 it("React exists", () => {
   expect(React).not.to.be.undefined;
@@ -33,7 +34,8 @@ it("should create components", () => {
 
 it("should render components", () => {
   const element = React.createElement(SomeComponent);
-  const container = document.createElement("div");
-  const rendered = render(element, container);
-  expect(rendered).not.to.be.undefined;
+  const window = new JSDOM().window;
+  const container = window.document.createElement("div");
+  render(element, container);
+  expect(container.innerHTML).equal("<div>Hello Component!</div>");
 });
