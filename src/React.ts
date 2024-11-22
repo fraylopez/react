@@ -3,8 +3,8 @@ if (typeof window !== "undefined") {
   document = window.document;
 }
 else {
-  const { JSDOM } = require("jsdom");
-  new JSDOM().window.document;
+  const { JSDOM } = await import("jsdom");
+  document = new JSDOM().window.document;
 }
 
 export const React = {
