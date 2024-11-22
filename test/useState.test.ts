@@ -1,4 +1,5 @@
 import { expect } from "chai";
+import { state, useState } from "../src/useState";
 
 describe('useState', () => {
   it("should return the initial value", () => {
@@ -13,11 +14,3 @@ describe('useState', () => {
   });
 });
 
-let state;
-const useState = (initialState: any) => {
-  state = initialState;
-  const setState = (newState: any) => {
-    state = newState;
-  };
-  return [state, setState];
-};
