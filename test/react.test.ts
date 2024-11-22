@@ -3,6 +3,9 @@ import { React } from "../src/React";
 import { SomeComponent } from "./fixtures/SomeComponent";
 import { JSDOM } from "jsdom";
 
+declare var document: Document;
+globalThis.document = new JSDOM().window.document;
+
 describe('react', () => {
   it("React exists", () => {
     expect(React).not.to.be.undefined;
@@ -35,8 +38,7 @@ describe('react', () => {
 
   it("should render components", () => {
     const element = React.createElement(SomeComponent);
-    const window = new JSDOM().window;
-    const container = window.document.createElement("div");
+    const container = document.createElement("div");
     React.render(element, container);
     expect(container.innerHTML).equal("<div>Hello Component!</div>");
   });
