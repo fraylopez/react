@@ -22,32 +22,32 @@ export const React = {
       children,
     };
   },
+  render: (
+    element: {
+      tag: string;
+      props?: object;
+      children?: any[];
+    }, container: HTMLElement) => {
+    if (typeof element === "string") {
+      const textElement = document.createTextNode(element);
+      container.appendChild(textElement);
+      return;
+    }
+
+    const domElement = document.createElement(element.tag);
+    if (element.props) {
+      Object.keys(element.props).forEach((prop) => {
+        domElement[prop] = element.props[prop];
+      });
+    }
+    if (element.children) {
+      element.children.forEach((child: any) => {
+        React.render(child, domElement);
+      });
+    }
+
+    container.appendChild(domElement);
+  },
   reRender: () => { },
 };
 
-export const render = (
-  element: {
-    tag: string;
-    props?: object;
-    children?: any[];
-  }, container: HTMLElement) => {
-  if (typeof element === "string") {
-    const textElement = document.createTextNode(element);
-    container.appendChild(textElement);
-    return;
-  }
-
-  const domElement = document.createElement(element.tag);
-  if (element.props) {
-    Object.keys(element.props).forEach((prop) => {
-      domElement[prop] = element.props[prop];
-    });
-  }
-  if (element.children) {
-    element.children.forEach((child: any) => {
-      render(child, domElement);
-    });
-  }
-
-  container.appendChild(domElement);
-};

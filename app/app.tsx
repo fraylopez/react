@@ -1,4 +1,4 @@
-import { React, render } from '../src/React';
+import { React } from '../src/React';
 
 const App = () => {
   return (
@@ -10,4 +10,4 @@ const App = () => {
   );
 };
 const root = document.getElementById("app-root");
-render(React.createElement(App), root);
+React.render(React.createElement(App), root);

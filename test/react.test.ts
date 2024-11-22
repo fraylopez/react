@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { React, render } from "../src/React";
+import { React } from "../src/React";
 import { SomeComponent } from "./fixtures/SomeComponent";
 import { JSDOM } from "jsdom";
 
@@ -37,7 +37,7 @@ describe('react', () => {
     const element = React.createElement(SomeComponent);
     const window = new JSDOM().window;
     const container = window.document.createElement("div");
-    render(element, container);
+    React.render(element, container);
     expect(container.innerHTML).equal("<div>Hello Component!</div>");
   });
 });
