@@ -1,12 +1,12 @@
 import { React } from "./React";
 
-export let state;
+export let globalState;
 
-export const useState = (initialState: any) => {
-  state = initialState;
+export const useState = (initialState?: any) => {
+  globalState = globalState || initialState;
   const setState = (newState: any) => {
-    state = newState;
+    globalState = newState;
     React.reRender();
   };
-  return [state, setState];
+  return [globalState, setState];
 };

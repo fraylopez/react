@@ -1,7 +1,7 @@
 import { expect } from "chai";
-import { state, useState } from "../src/useState";
-import Sinon from "sinon";
+import { globalState, useState } from "../src/useState";
 import { React } from "../src/React";
+import { SomeComponent } from "./fixtures/SomeComponent";
 
 describe('useState', () => {
   it("should return the initial value", () => {
@@ -12,14 +12,17 @@ describe('useState', () => {
   it("should update the state", () => {
     const [_state, setState] = useState(0);
     setState(1);
-    expect(state).equal(1);
+    expect(globalState).equal(1);
   });
 
   it("should re-render on state update", () => {
-    const reRenderStub = Sinon.stub(React, "reRender");
+    const container = document.createElement("div");
+    React.render(SomeComponent, container);
+
     const [_state, setState] = useState(0);
     setState(1);
-    Sinon.assert.calledOnce(reRenderStub);
+
+    expect(container.innerHTML).equal("<div>Hello Component!1</div>");
   });
 });
 
