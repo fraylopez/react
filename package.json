@@ -4,9 +4,8 @@
   "description": "Bob kata in TypeScript",
   "scripts": {
     "test": "mocha --loader=ts-node/esm --experimental-specifier-resolution=node --no-warnings=ExperimentalWarning -r ts-node/register test/**/*.test.ts",
-    "dev": "tsc -w",
     "serve": "serve .",
-    "dd": "webpack --mode=development --config webpack.config.cjs"
+    "dev": "webpack --mode=development --config webpack.config.cjs --watch"
   },
   "license": "MIT",
   "private": true,
