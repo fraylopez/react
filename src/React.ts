@@ -21,7 +21,8 @@ export const React = {
       props,
       children,
     };
-  }
+  },
+  reRender: () => { },
 };
 
 export const render = (
