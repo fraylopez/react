@@ -1,7 +1,11 @@
-import { JSDOM } from "jsdom";
-let document: Document = typeof window !== "undefined" ?
-  window.document :
+let document: Document;
+if (typeof window !== "undefined") {
+  document = window.document;
+}
+else {
+  const { JSDOM } = require("jsdom");
   new JSDOM().window.document;
+}
 
 export const React = {
   createElement: (

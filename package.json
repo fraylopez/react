@@ -5,7 +5,8 @@
   "scripts": {
     "test": "mocha --loader=ts-node/esm --experimental-specifier-resolution=node --no-warnings=ExperimentalWarning -r ts-node/register test/**/*.test.ts",
     "dev": "tsc -w",
-    "serve": "serve ./app"
+    "serve": "serve .",
+    "dd": "webpack --mode=development --config webpack.config.cjs"
   },
   "license": "MIT",
   "private": true,
@@ -21,9 +22,13 @@
     "jsdom": "^25.0.1",
     "mocha": "^10.8.2",
     "serve": "^14.2.4",
+    "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3",
-    "typescript-eslint": "^8.14.0"
+    "typescript-eslint": "^8.14.0",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-node-externals": "^3.0.0"
   },
   "type": "module"
 }

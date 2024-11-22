@@ -2,10 +2,11 @@
   "compilerOptions": {
     "lib": [
       "es2022",
-      "dom"
+      "dom",
+      "es2015"
     ],
     "module": "es2022",
-    "target": "es2022",
+    "target": "es2015",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -20,37 +21,41 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "checkJs": false,
-    "sourceMap": false,
+    // "sourceMap": true,
+    "inlineSourceMap": true,
     "declaration": false,
     "stripInternal": true,
     "outDir": "dist",
     "useUnknownInCatchVariables": false,
     // "allowImportingTsExtensions": true,
     "noEmit": false,
-    "verbatimModuleSyntax": true,
+    // "verbatimModuleSyntax": true,
     "ignoreDeprecations": "5.0",
     "jsx": "react",
     "strict": false,
     "typeRoots": [
       "node_modules/@types"
-    ],
+    ]
   },
   "watchOptions": {
     "excludeDirectories": [
       "node_modules",
-      "dist/**/*",
+      "dist/**/*"
     ]
   },
   "include": [
-    "./src/**/*",
-    "./app/**/*",
+    "src/**/*",
+    "app/**/*"
   ],
   "exclude": [
     "node_modules",
     "./dist",
-    ".js",
+    ".js"
   ],
+  // "files": [
+  //   "./app/app.tsx"
+  // ],
   "ts-node": {
-    "esm": true, // «———— enabling ESM for ts-node
-  },
+    "esm": true // «———— enabling ESM for ts-node
+  }
 }
