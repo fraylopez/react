@@ -24,3 +24,4 @@ export const reset = () => {
 export const resetCursor = () => {
   globalStateCursor = 0;
 };
+

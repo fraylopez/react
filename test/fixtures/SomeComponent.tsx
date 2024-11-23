@@ -1,11 +1,11 @@
 import { React } from "../../src/React";
-import { useState } from "../../src/useState";
+import { useState } from "../../src/hooks";
 
-export let setState: (newState: any) => void;
+export let setSomeState: (newState: any) => void;
 
 export const SomeComponent = () => {
   const [name, setName] = useState("");
-  setState = setName;
+  setSomeState = setName;
   return (
     <div>{`Hello Component!${name}`}</div>
   );

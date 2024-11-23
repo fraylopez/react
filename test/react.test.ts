@@ -53,7 +53,7 @@ describe('react', () => {
     const container = document.createElement("div");
     React.render(element, container);
 
-    fixture.setState("Hello");
+    fixture.setSomeState("Hello");
 
     expect(container.innerHTML).equal("<div>Hello Component!Hello</div>");
   });

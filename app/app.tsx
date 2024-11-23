@@ -1,13 +1,17 @@
 import { React } from '../src/React';
-import { useState } from "../src/useState";
+import { useEffect, useState } from "../src/hooks";
 
 export const App = () => {
 
   const [name, setName] = useState("");
   const [count, setCount] = useState(0);
 
-  console.log("name", name);
-  console.log("count", count);
+  useEffect(async () => {
+    await new Promise<void>((resolve) => setTimeout(() => {
+      setCount(1);
+      resolve();
+    }, 1000));
+  }, []);
 
   return (
     <div>

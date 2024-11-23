@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { reset, useState } from "../src/useState";
+import { reset, useState } from "../src/hooks";
 import { beforeEach } from "mocha";
 import sinon from "sinon";
 import { React } from "../src/React";

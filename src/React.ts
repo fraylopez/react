@@ -1,4 +1,4 @@
-import { resetCursor } from "./useState";
+import { resetCursor } from "./hooks";
 
 let document: Document;
 if (typeof window !== "undefined") {
