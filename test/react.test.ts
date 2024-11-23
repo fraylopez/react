@@ -1,5 +1,6 @@
 import { expect } from "chai";
 import { React } from "../src/React";
+import * as fixture from "./fixtures/SomeComponent";
 import { SomeComponent } from "./fixtures/SomeComponent";
 import { JSDOM } from "jsdom";
 
@@ -7,6 +8,10 @@ declare var document: Document;
 globalThis.document = new JSDOM().window.document;
 
 describe('react', () => {
+  afterEach(() => {
+    React.reset();
+  });
+
   it("React exists", () => {
     expect(React).not.to.be.undefined;
   });
@@ -41,5 +46,15 @@ describe('react', () => {
     const container = document.createElement("div");
     React.render(element, container);
     expect(container.innerHTML).equal("<div>Hello Component!</div>");
+  });
+
+  it("should re-render components with updated state", () => {
+    const element = React.createElement(SomeComponent);
+    const container = document.createElement("div");
+    React.render(element, container);
+
+    fixture.setState("Hello");
+
+    expect(container.innerHTML).equal("<div>Hello Component!Hello</div>");
   });
 });

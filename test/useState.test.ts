@@ -31,6 +31,18 @@ describe('useState', () => {
     expectStateEqual(1, 2);
   });
 
+  it("should keep track of states", () => {
+    const [_state1, setState1] = useState(0);
+    const [_state2, setState2] = useState(0);
+
+    setState1(1);
+    setState1(2);
+    setState2(2);
+    setState2(3);
+
+    expectStateEqual(2, 3);
+  });
+
   it("should re-render on state update", () => {
     const reRenderStub = sinon.stub(React, "reRender");
     const [_state, setState] = useState("");

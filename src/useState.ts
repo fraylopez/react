@@ -1,7 +1,7 @@
 import { React } from "./React";
 
-export let globalState: any[] = [];
-let globalStateCursor = 0;
+export const globalState: any[] = [];
+export let globalStateCursor = 0;
 
 export const useState = (initialState?: any) => {
   const cursor = globalStateCursor;
@@ -17,6 +17,10 @@ export const useState = (initialState?: any) => {
 
 export const reset = () => {
   globalStateCursor = 0;
-  globalState = [];
+  globalState.length = 0;
   return globalState;
+};
+
+export const resetCursor = () => {
+  globalStateCursor = 0;
 };

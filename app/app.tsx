@@ -4,8 +4,10 @@ import { useState } from "../src/useState";
 export const App = () => {
 
   const [name, setName] = useState("");
+  const [count, setCount] = useState(0);
 
   console.log("name", name);
+  console.log("count", count);
 
   return (
     <div>
@@ -16,6 +18,9 @@ export const App = () => {
         value={name}
         onchange={(e) => setName(e.target.value)}
       />
+      <h2>Counter value: {count.toString()}</h2>
+      <button onclick={() => setCount(count + 1)}>+1</button>
+      <button onclick={() => setCount(count - 1)}>-1</button>
     </div>
   );
 };

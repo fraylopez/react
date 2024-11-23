@@ -1,4 +1,4 @@
-import { App } from "../app/app";
+import { resetCursor } from "./useState";
 
 let document: Document;
 if (typeof window !== "undefined") {
@@ -25,6 +25,7 @@ export const React = {
     ...children: any[]) => {
 
     if (typeof tagOrComponent === "function") {
+      root = tagOrComponent;
       return tagOrComponent();
     }
 
@@ -37,6 +38,8 @@ export const React = {
   render: (element: IComponent | (() => IComponent) | string, container: HTMLElement) => {
     if (!topContainerEl) {
       topContainerEl = container;
+    }
+    if (!root) {
       root = element;
     }
 
@@ -70,8 +73,16 @@ export const React = {
     if (!topContainerEl) {
       return;
     }
+    resetCursor();
+
     topContainerEl.innerHTML = "";
     React.render(root, topContainerEl);
-  }
+  },
+
+  reset: () => {
+    topContainerEl = null;
+    root = null;
+    resetCursor();
+  },
 };
 
