@@ -13,7 +13,6 @@ describe('useEffect', () => {
     sinon.assert.called(effect);
   });
 
-
   it("should call the effect when dependecies change", () => {
     const effect = sinon.stub();
     let stateChanger: (newState: any) => void;
