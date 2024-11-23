@@ -2,6 +2,7 @@ import { expect } from "chai";
 import { React } from "../src/React";
 import * as fixture from "./fixtures/SomeComponent";
 import { SomeComponent } from "./fixtures/SomeComponent";
+import { SomeComponentWithProps } from "./fixtures/SomeComponentWithProps";
 import { JSDOM } from "jsdom";
 
 declare var document: Document;
@@ -29,6 +30,10 @@ describe('react', () => {
   it("should create elements with props", () => {
     const element: any = React.createElement("App", { id: "app" });
     expect(element.props).deep.equal({ id: "app" });
+  });
+  it("should create functional elements with props", () => {
+    const element: any = React.createElement(SomeComponentWithProps);
+    expect(element.props).deep.equal({ test: "foo" });
   });
 
   it("should allow elements as children", () => {
