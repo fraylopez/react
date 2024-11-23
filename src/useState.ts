@@ -1,12 +1,22 @@
 import { React } from "./React";
 
-export let globalState;
+export let globalState: any[] = [];
+let globalStateCursor = 0;
 
 export const useState = (initialState?: any) => {
-  globalState = globalState || initialState;
+  const cursor = globalStateCursor;
+  globalState[globalStateCursor] = globalState[globalStateCursor] || initialState;
+
   const setState = (newState: any) => {
-    globalState = newState;
+    globalState[cursor] = newState;
     React.reRender();
   };
-  return [globalState, setState];
+  globalStateCursor++;
+  return [globalState[cursor], setState];
+};
+
+export const reset = () => {
+  globalStateCursor = 0;
+  globalState = [];
+  return globalState;
 };
