@@ -32,4 +32,4 @@ export const App = () => {
   );
 };
 const root = document.getElementById("app-root");
-React.render(App, root);
+React.render(App, root!);
