@@ -25,3 +25,25 @@ export const resetCursor = () => {
   globalStateCursor = 0;
 };
 
+
+export const useEffect = (callback: (...deps) => void, dependencies: any[]) => {
+  if (!dependencies.length) {
+    callback();
+    return;
+  }
+  let previousDependencies = globalState[globalStateCursor];
+
+  let dependenciesChanged = true;
+  if (previousDependencies) {
+    dependenciesChanged = dependencies.some((dep, index) => {
+      return !Object.is(dep, previousDependencies[index]);
+    });
+  }
+
+  if (dependenciesChanged) {
+    callback();
+  }
+
+  globalState[globalStateCursor] = previousDependencies;
+  globalStateCursor++;
+};
