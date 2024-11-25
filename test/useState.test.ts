@@ -50,6 +50,18 @@ describe('useState', () => {
     setState("Hello");
 
     sinon.assert.called(reRenderStub);
+    reRenderStub.restore();
+  });
+
+  it("should NOT re-render on same state", () => {
+    const reRenderStub = sinon.stub(React, "reRender");
+    const [_state, setState] = useState("");
+
+    setState("Hello");
+    setState("Hello");
+
+    sinon.assert.calledOnce(reRenderStub);
+    reRenderStub.restore();
   });
 });
 

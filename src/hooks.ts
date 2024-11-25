@@ -6,10 +6,11 @@ export let globalStateCursor = 0;
 export const useState = (initialState?: any) => {
   const cursor = globalStateCursor;
   globalState[globalStateCursor] = globalState[globalStateCursor] || initialState;
-
   const setState = (newState: any) => {
-    globalState[cursor] = newState;
-    React.reRender();
+    if (!Object.is(globalState[cursor], newState)) {
+      globalState[cursor] = newState;
+      React.reRender();
+    }
   };
   globalStateCursor++;
   return [globalState[cursor], setState];
