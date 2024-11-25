@@ -14,6 +14,18 @@ export const App = () => {
 
   }, [count]);
 
+  useEffect(
+    async () => {
+      await new Promise<void>((resolve) => {
+        setTimeout(() => {
+          setCount(count + 1);
+          resolve();
+        }, 3000);
+      });
+    },
+    []
+  );
+
   return (
     <div>
       <h2>Hello, {name || "unknown"}</h2>
