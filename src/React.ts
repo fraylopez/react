@@ -15,8 +15,8 @@ interface IComponent {
   children?: any[];
 }
 
-let topContainerEl: HTMLElement;
-let root: IComponent | (() => IComponent) | string;
+let topContainerEl: HTMLElement | null;
+let root: IComponent | (() => IComponent) | string | null;
 
 export const React = {
   createElement: (
@@ -58,7 +58,7 @@ export const React = {
 
     if (element.props) {
       Object.keys(element.props).forEach((prop) => {
-        domElement[prop] = element.props[prop];
+        domElement[prop] = element.props![prop];
       });
     }
     if (element.children) {
@@ -76,7 +76,7 @@ export const React = {
     resetCursor();
 
     topContainerEl.innerHTML = "";
-    React.render(root, topContainerEl);
+    React.render(root!, topContainerEl);
   },
 
   reset: () => {
